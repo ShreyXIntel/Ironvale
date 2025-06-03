@@ -1,0 +1,226 @@
+{
+  "game_flows": [
+    {
+      "game_name": "Black Myth Wukong Benchmark",
+      "detection_hints": [
+        {
+          "context": "Main Menu",
+          "priority_elements": ["BENCHMARK", "START", "BEGIN", "RUN", "SETTINGS"],
+          "navigation_path": [
+            {
+              "menu": "Main Menu",
+              "click": "BENCHMARK"
+            },
+            {
+              "menu": "Confirmation Dialog",
+              "click": "CONFIRM"
+            }
+          ],
+          "benchmark_indicators": ["BENCHMARK", "START BENCHMARK", "BEGIN", "RUN BENCHMARK", "TEST"],
+          "back_to_main_menu": [
+            {
+              "action": "PRESS_KEY",
+              "key": "escape"
+            }
+          ],
+          "exit_game": {
+            "action": "CLICK",
+            "target": "EXIT",
+            "confirmation": false
+          }
+        }
+      ]
+    },
+    {
+      "game_name": "Far Cry 6",
+      "detection_hints": [
+        {
+          "context": "Main Menu",
+          "priority_elements": ["OPTIONS", "GRAPHICS", "BENCHMARK"],
+          "navigation_path": [
+            {
+              "menu": "Main Menu",
+              "click": "OPTIONS"
+            },
+            {
+              "menu": "Options Menu",
+              "click": "GRAPHICS"
+            },
+            {
+              "menu": "Graphics Options",
+              "click": "BENCHMARK"
+            }
+          ],
+          "benchmark_indicators": ["FPS", "BENCHMARK RESULTS", "PERFORMANCE TEST"],
+          "back_to_main_menu": [
+            {
+              "action": "PRESS_KEY",
+              "key": "escape"
+            },
+            {
+              "action": "PRESS_KEY",
+              "key": "escape"
+            }
+          ],
+          "exit_game": {
+            "action": "CLICK",
+            "target": "QUIT TO DESKTOP",
+            "confirmation": true,
+            "confirmation_target": "YES"
+          }
+        }
+      ]
+    },
+    {
+      "game_name": "Assassin's Creed",
+      "detection_hints": [
+        {
+          "context": "Main Menu",
+          "priority_elements": ["OPTIONS", "SETTINGS", "GRAPHICS", "BENCHMARK"],
+          "navigation_path": [
+            {
+              "menu": "Main Menu",
+              "click": "OPTIONS"
+            },
+            {
+              "menu": "Options Menu",
+              "click": "GRAPHICS"
+            },
+            {
+              "menu": "Graphics Settings",
+              "click": "BENCHMARK"
+            }
+          ],
+          "benchmark_indicators": ["BENCHMARK RESULTS", "FPS", "PERFORMANCE"],
+          "back_to_main_menu": [
+            {
+              "action": "PRESS_KEY",
+              "key": "escape"
+            },
+            {
+              "action": "PRESS_KEY",
+              "key": "escape"
+            }
+          ],
+          "exit_game": {
+            "action": "CLICK",
+            "target": "QUIT GAME",
+            "confirmation": true,
+            "confirmation_target": "YES"
+          }
+        }
+      ]
+    },
+    {
+      "game_name": "Counter-Strike 2",
+      "detection_hints": [
+        {
+          "context": "Main Menu",
+          "priority_elements": ["PLAY", "WORKSHOP MAPS", "CS2 FPS BENCHMARK", "GO"],
+          "navigation_path": [
+            {
+              "menu": "Main Menu",
+              "click": "PLAY"
+            },
+            {
+              "menu": "Play Menu",
+              "click": "WORKSHOP MAPS"
+            },
+            {
+              "menu": "Workshop Maps",
+              "click": "CS2 FPS BENCHMARK"
+            },
+            {
+              "menu": "Benchmark Info",
+              "click": "GO"
+            }
+          ],
+          "benchmark_indicators": ["FPS", "FRAMETIME", "PERFORMANCE TEST", "BENCHMARK RESULTS", "CONSOLE"],
+          "back_to_main_menu": [
+            {
+              "action": "PRESS_KEY",
+              "key": "escape"
+            },
+            {
+              "action": "PRESS_KEY",
+              "key": "escape"
+            }
+          ],
+          "exit_game": {
+            "action": "CLICK",
+            "target": "QUIT",
+            "confirmation": false
+          }
+        }
+      ]
+    },
+    {
+      "game_name": "Cyberpunk 2077",
+      "detection_hints": [
+        {
+          "context": "Main Menu",
+          "priority_elements": ["SETTINGS", "GRAPHICS", "BENCHMARK"],
+          "navigation_path": [
+            {
+              "menu": "Main Menu",
+              "click": "SETTINGS"
+            },
+            {
+              "menu": "Settings Menu",
+              "click": "GRAPHICS"
+            },
+            {
+              "menu": "Graphics Settings",
+              "click": "BENCHMARK"
+            }
+          ],
+          "benchmark_indicators": ["BENCHMARK", "FPS TEST", "PERFORMANCE"],
+          "back_to_main_menu": [
+            {
+              "action": "PRESS_KEY",
+              "key": "escape"
+            },
+            {
+              "action": "PRESS_KEY",
+              "key": "escape"
+            }
+          ],
+          "exit_game": {
+            "action": "CLICK",
+            "target": "QUIT GAME",
+            "confirmation": true,
+            "confirmation_target": "YES"
+          }
+        }
+      ]
+    }
+  ],
+  "navigation_instructions": {
+    "priority_keywords": ["BENCHMARK", "PERFORMANCE", "TEST", "FPS", "FRAMERATE", "GRAPHICS"],
+    "button_characteristics": {
+      "options_button": ["OPTIONS", "SETTINGS", "SETUP", "CONFIGURATION"],
+      "graphics_button": ["GRAPHICS", "VIDEO", "DISPLAY", "VISUAL"],
+      "benchmark_button": ["BENCHMARK", "PERFORMANCE TEST", "FPS TEST", "STRESS TEST"]
+    },
+    "fallback_strategy": {
+      "if_no_benchmark_found": [
+        "Search in OPTIONS or SETTINGS first",
+        "Then look for GRAPHICS or VIDEO settings",
+        "Then search for ADVANCED settings",
+        "Look for BENCHMARK or PERFORMANCE TEST"
+      ]
+    }
+  },
+  "result_detection": {
+    "benchmark_completion_indicators": [
+      "BENCHMARK COMPLETE",
+      "TEST FINISHED",
+      "RESULTS",
+      "SUMMARY",
+      "AVERAGE FPS",
+      "PERFORMANCE SCORE"
+    ],
+    "wait_for_completion": true,
+    "max_benchmark_duration_seconds": 300
+  }
+}
